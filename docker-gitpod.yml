@@ -1,0 +1,30 @@
+# Command to start on workspace startup
+
+tasks:
+  - init: |
+      clear
+      cp app/settings/local.example.py app/settings/local.py
+      echo '# required when running in gitpod' >> app/settings/local.py
+      echo 'CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io"]' >> app/settings/local.py
+      echo "url=$(gp url 3000)" >> .gitpod.env
+      mkdir database_dumps
+      . commands.sh
+      dbuild
+      dup
+      djmigrate
+      djcreatesuperuser
+      djrun
+    name: python
+  - init: |
+      clear
+      nvm install
+      npm install
+      gp await-port 8000
+      npm run gulp
+    name: node
+    openMode: split-right
+
+ports:
+  - port: 8000
+  - port: 3000
+    onOpen: open-preview

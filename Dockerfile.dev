@@ -1,0 +1,24 @@
+FROM python:3.10
+
+### 
+### All the commands in this container are run as root!
+### Not recommended for production use.
+###
+
+EXPOSE 8000
+
+ENV PYTHONUNBUFFERED=1 \
+    PORT=8000
+
+# install poetry
+RUN pip install -U pip && pip install poetry
+
+# output python dependencies
+COPY pyproject.toml poetry.lock /
+RUN poetry export -o requirements.txt --without-hashes
+RUN pip install -r requirements.txt
+
+WORKDIR /app
+COPY  . .
+
+COPY docker/.bashrc docker/.superuser.sh /root/
