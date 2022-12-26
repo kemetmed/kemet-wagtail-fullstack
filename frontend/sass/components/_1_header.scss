@@ -1,0 +1,8 @@
+@use '../base' as *;
+
+header {
+    h1 {
+        @include textUnit(1rem);
+        color: var(--color-contrast-lower);
+    }
+}

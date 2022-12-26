@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+
+<div class="container max-width-lg padding-y-md">
+    <div class="text-component">
+        <span class="text-xxl">🚀</span>
+        <h2>
+            <span>Wagtail</span>
+            <div class="text-xs color-contrast-lower inline@md">CMS Backend</div>
+            <span class="display@md">|</span>
+            <span class="block inline@md margin-top-xs margin-top-0@md">Codyhouse</span>
+            <div class="text-xs color-contrast-lower inline@md">Framework Frontend</div>
+        </h2>
+        <p class="color-contrast-medium">Get Help to start your project:</p>
+
+        <ol class="list list--ol">
+            <li><strong>Wagtail CMS</strong>
+                <ul>
+                    <li>
+                        <a href="https://docs.wagtail.org/en/stable/">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="https://wagtail.org/packages/">Packages</a>
+                    </li>
+                    <li>
+                        <a href="https://wagtail.org/developers/">Developers</a>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Codyhouse Framework</strong>
+                <ul>
+                    <li>
+                        <a href="https://codyhouse.co/ds/get-started">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="https://codyhouse.co/ds/components">UI Framework</a>
+                    </li>
+                    <li>
+                        <a href="https://codyhouse.co/templates">Templates</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Try out the Wagtail Admin</strong>
+                <ul>
+                    <li>
+                        <a href="/admin">Login</a> <span class="text-sm color-contrast-medium">user name:</span> admin
+                        <span class="text-sm color-contrast-medium">password:</span> password
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+{% endblock content %}
